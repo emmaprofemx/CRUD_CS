@@ -106,12 +106,13 @@ namespace capaPresentacion
             // lnkFoto
             // 
             this.lnkFoto.AutoSize = true;
-            this.lnkFoto.Location = new System.Drawing.Point(24, 218);
+            this.lnkFoto.Location = new System.Drawing.Point(36, 219);
             this.lnkFoto.Name = "lnkFoto";
             this.lnkFoto.Size = new System.Drawing.Size(67, 15);
             this.lnkFoto.TabIndex = 7;
             this.lnkFoto.TabStop = true;
             this.lnkFoto.Text = "Seleccionar";
+            this.lnkFoto.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkFoto_LinkClicked);
             // 
             // picFoto
             // 
@@ -119,6 +120,7 @@ namespace capaPresentacion
             this.picFoto.Location = new System.Drawing.Point(118, 174);
             this.picFoto.Name = "picFoto";
             this.picFoto.Size = new System.Drawing.Size(152, 111);
+            this.picFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picFoto.TabIndex = 8;
             this.picFoto.TabStop = false;
             this.picFoto.Click += new System.EventHandler(this.picFoto_Click);
@@ -135,6 +137,7 @@ namespace capaPresentacion
             this.btnNuevo.TabIndex = 9;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnEliminar
             // 
@@ -153,6 +156,7 @@ namespace capaPresentacion
             this.btnGuardar.TabIndex = 11;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // frClientes
             // 
