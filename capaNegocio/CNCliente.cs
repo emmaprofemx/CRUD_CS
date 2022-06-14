@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Windows.Forms;
+using capaDatos;
 //Uso de la capa entidad
 using capaEntidad;
 namespace capaNegocio
 {
     public class CNCliente
     {
+        CDCliente cDCliente = new CDCliente();
         public bool ValidarDatos(CECliente cliente)
         {
             bool resultado = true;
@@ -31,7 +33,9 @@ namespace capaNegocio
             return resultado;
         }
 
-
-
+        public void PruebaMysql()
+        {
+            cDCliente.PruebaConexion();
+        }
     }
 }

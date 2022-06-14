@@ -70,5 +70,10 @@ namespace capaPresentacion
 
             MessageBox.Show("Todo bien vamos a insertar");
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            cnCliente.PruebaMysql();
+        }
     }
 }
