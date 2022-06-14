@@ -10,12 +10,16 @@ using System.Windows.Forms;
 
 namespace capaPresentacion
 {
-    public partial class Form1 : Form
+    public partial class frClientes : Form
     {
-        public Form1()
+        public frClientes()
         {
             InitializeComponent();
         }
 
+        private void picFoto_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
