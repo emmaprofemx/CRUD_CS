@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using capaDatos;
 using capaEntidad;
+using System.Data;
 
 namespace capaDatos
 {
@@ -47,7 +48,23 @@ namespace capaDatos
             MessageBox.Show("Registro creado");
         }
 
+        //Este metodo nos ayudara a mostrar el contenido de nuestra base de datos en el gridData.
+        public DataSet Listar()
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(CadenaConexion);
+            mySqlConnection.Open();
+            string Query = "SELECT * FROM `clientes` LIMIT 1000;";
+            MySqlDataAdapter Adaptador;
+            DataSet dataset = new DataSet();
 
+            Adaptador = new MySqlDataAdapter(Query , mySqlConnection);
+            //Establecemos nombre a la tabla que vamos a ocupar...
+            Adaptador.Fill(dataset, "tbl");
+
+            return dataset;
+
+
+        }
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 using capaDatos;
 //Uso de la capa entidad
@@ -41,6 +42,11 @@ namespace capaNegocio
         public void CrearCliente(CECliente cE)
         {
             cDCliente.Crear(cE);
+        }
+
+        public DataSet ObtenerDatos()
+        {
+            return cDCliente.Listar();
         }
 
     }

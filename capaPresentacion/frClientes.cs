@@ -70,11 +70,29 @@ namespace capaPresentacion
 
           //  MessageBox.Show("Todo bien vamos a insertar");
             cnCliente.CrearCliente(cECliente);
+            CargarDatos();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             cnCliente.PruebaMysql();
         }
+
+        private void frClientes_Load(object sender, EventArgs e)
+        {
+            CargarDatos();
+        }
+        private void gridDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        public void CargarDatos()
+        {
+            //La siguiente sirve para obtener los datos al nombre del elemento tabla que hemos asignado en CDCliente.
+            //Posteriormente la cargamos a la gridData cuando se ejecute la aplicacion.
+            gridDatos.DataSource = cnCliente.ObtenerDatos().Tables["tbl"];
+        }
+       
     }
 }
