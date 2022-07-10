@@ -68,7 +68,8 @@ namespace capaPresentacion
             }
             //cnCliente.ValidarDatos(cECliente);
 
-            MessageBox.Show("Todo bien vamos a insertar");
+          //  MessageBox.Show("Todo bien vamos a insertar");
+            cnCliente.CrearCliente(cECliente);
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

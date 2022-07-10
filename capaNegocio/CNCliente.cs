@@ -37,5 +37,11 @@ namespace capaNegocio
         {
             cDCliente.PruebaConexion();
         }
+
+        public void CrearCliente(CECliente cE)
+        {
+            cDCliente.Crear(cE);
+        }
+
     }
 }
