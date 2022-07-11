@@ -36,7 +36,7 @@ namespace capaDatos
             MessageBox.Show("Conectado!");
         }
 
-        //Creacion de metodo paara la creacion del elemento
+        //Metodo para editar un elemento de la BD.
         public void Editar(CECliente cE)
         {
             MySqlConnection mySqlConnection = new MySqlConnection(CadenaConexion);
@@ -48,9 +48,19 @@ namespace capaDatos
             MessageBox.Show("Registro Actualizado");
         }
 
-
-
         //Creacion de metodo paara la creacion del elemento
+        public void Eliminar(CECliente cE)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(CadenaConexion);
+            mySqlConnection.Open();
+            string Query = "DELETE FROM `clientes` WHERE  `id`= " + cE.id +" ;";
+            MySqlCommand mySqlCommand = new MySqlCommand(Query, mySqlConnection);
+            mySqlCommand.ExecuteNonQuery();
+            mySqlConnection.Close();
+            MessageBox.Show("Registro Eliminado");
+        }
+
+        //Metodo para la creacion del elemento.
         public void Crear(CECliente cE)
         {
             MySqlConnection mySqlConnection = new MySqlConnection(CadenaConexion);

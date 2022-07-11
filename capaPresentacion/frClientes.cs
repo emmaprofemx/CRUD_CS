@@ -27,11 +27,7 @@ namespace capaPresentacion
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            //Limpiar los elementos
-            txtId.Value = 0;
-            txtNombre.Text = "";
-            txtApellido.Text = "";
-            picFoto.Image = null;
+            LimpiarForm();
 
         }
 
@@ -78,11 +74,24 @@ namespace capaPresentacion
           //  MessageBox.Show("Todo bien vamos a insertar");
            
             CargarDatos();
+            LimpiarForm();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            cnCliente.PruebaMysql();
+
+            //cnCliente.PruebaMysql();
+            if (txtId.Value == 0) return;
+
+            if (MessageBox.Show("¿Deseas eliminar el registro?" , "Titulo" , MessageBoxButtons.YesNo , MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                CECliente cE = new CECliente();
+                cE.id = (int)txtId.Value;
+                cnCliente.EliminarCliente(cE);
+                CargarDatos();
+                LimpiarForm();
+            }
+            
         }
 
         private void frClientes_Load(object sender, EventArgs e)
@@ -110,6 +119,15 @@ namespace capaPresentacion
             txtNombre.Text = gridDatos.CurrentRow.Cells["nombre"].Value.ToString();
             txtApellido.Text = gridDatos.CurrentRow.Cells["apellido"].Value.ToString();
             picFoto.Load(gridDatos.CurrentRow.Cells["foto"].Value.ToString());
+        }
+
+        private void LimpiarForm()
+        {
+            //Limpiar los elementos
+            txtId.Value = 0;
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            picFoto.Image = null;
         }
     }
 }
