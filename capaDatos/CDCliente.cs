@@ -37,6 +37,20 @@ namespace capaDatos
         }
 
         //Creacion de metodo paara la creacion del elemento
+        public void Editar(CECliente cE)
+        {
+            MySqlConnection mySqlConnection = new MySqlConnection(CadenaConexion);
+            mySqlConnection.Open();
+            string Query = "UPDATE `clientes` SET `nombre`='" + cE.Nombre + "', `apellido`='" + cE.Apellido + "', `foto`='" + MySql.Data.MySqlClient.MySqlHelper.EscapeString(cE.Foto) + "' WHERE  `id`="+ cE.id+";";
+            MySqlCommand mySqlCommand = new MySqlCommand(Query, mySqlConnection);
+            mySqlCommand.ExecuteNonQuery();
+            mySqlConnection.Close();
+            MessageBox.Show("Registro Actualizado");
+        }
+
+
+
+        //Creacion de metodo paara la creacion del elemento
         public void Crear(CECliente cE)
         {
             MySqlConnection mySqlConnection = new MySqlConnection(CadenaConexion);

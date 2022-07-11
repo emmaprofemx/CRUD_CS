@@ -44,6 +44,10 @@ namespace capaNegocio
             cDCliente.Crear(cE);
         }
 
+        public void EditarCliente(CECliente cE)
+        {
+            cDCliente.Editar(cE);
+        }
         public DataSet ObtenerDatos()
         {
             return cDCliente.Listar();

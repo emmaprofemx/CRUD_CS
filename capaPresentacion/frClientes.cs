@@ -67,9 +67,16 @@ namespace capaPresentacion
 
             }
             //cnCliente.ValidarDatos(cECliente);
-
+            if (cECliente.id == 0)
+            {
+                cnCliente.CrearCliente(cECliente);
+            }
+            else
+            {
+                cnCliente.EditarCliente(cECliente);
+            }
           //  MessageBox.Show("Todo bien vamos a insertar");
-            cnCliente.CrearCliente(cECliente);
+           
             CargarDatos();
         }
 
@@ -93,6 +100,16 @@ namespace capaPresentacion
             //Posteriormente la cargamos a la gridData cuando se ejecute la aplicacion.
             gridDatos.DataSource = cnCliente.ObtenerDatos().Tables["tbl"];
         }
-       
+
+        //Este metodo nos ayudara que al momento de seleccionar un campo de nuestra lista de base de datos
+        //Se acompleten los espacios para asi llevar acabo la accion de actualizar algun elemento.
+        private void gridDatos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Las siguientes lineas nos sirves para seleccionar un objeto y establecer los valores en los campos correspondientes.
+            txtId.Value = (int)gridDatos.CurrentRow.Cells["id"].Value;
+            txtNombre.Text = gridDatos.CurrentRow.Cells["nombre"].Value.ToString();
+            txtApellido.Text = gridDatos.CurrentRow.Cells["apellido"].Value.ToString();
+            picFoto.Load(gridDatos.CurrentRow.Cells["foto"].Value.ToString());
+        }
     }
 }

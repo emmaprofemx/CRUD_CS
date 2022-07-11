@@ -100,6 +100,7 @@ namespace capaPresentacion
             // 
             // txtId
             // 
+            this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(118, 40);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(40, 23);
@@ -167,8 +168,9 @@ namespace capaPresentacion
             this.gridDatos.Location = new System.Drawing.Point(368, 42);
             this.gridDatos.Name = "gridDatos";
             this.gridDatos.RowTemplate.Height = 25;
-            this.gridDatos.Size = new System.Drawing.Size(565, 298);
+            this.gridDatos.Size = new System.Drawing.Size(440, 298);
             this.gridDatos.TabIndex = 12;
+            this.gridDatos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridDatos_CellDoubleClick);
             // 
             // frClientes
             // 
